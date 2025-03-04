@@ -1,0 +1,213 @@
+/* Modern Minimalist Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fluid Typography System */
+html {
+  font-size: clamp(14px, 1.6vw, 18px);
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Poppins', system-ui, sans-serif;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg, #0a1929, #0d1a26);
+  overflow-x: hidden;
+}
+
+:root {
+  --neon-blue: rgba(0, 212, 255, 0.9);
+  --neon-pink: rgba(255, 0, 212, 0.9);
+  --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Centered Layout Structure */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  width: 100%;
+}
+
+/* Header Styles */
+.upper-section {
+  margin: 0 auto 4rem;
+  width: fit-content;
+  max-width: 90%;
+}
+
+.upper-section h1 {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+}
+
+/* Input Container */
+.input-container {
+  display: flex;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  position: relative;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.input-container::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
+  z-index: -1;
+  border-radius: 50px;
+  filter: blur(12px);
+  opacity: 0.3;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  color: inherit;
+  font-size: 1.1rem;
+  min-width: 200px;
+}
+
+/* Todo Items */
+.task-container {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.todo {
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  transition: transform 0.3s ease;
+  width: 100%;
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+/* Controls */
+.deletecheckbox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.deletecheckbox button {
+  padding: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff4d4d, #ff0000);
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.deletecheckbox button::after {
+  content: '×';
+  font-size: 1.5rem;
+}
+
+.deletecheckbox input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  appearance: none;
+  cursor: pointer;
+}
+
+.deletecheckbox input[type="checkbox"]:checked {
+  border-color: var(--neon-blue);
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.deletecheckbox input[type="checkbox"]:checked::before {
+  content: '✓';
+  display: block;
+  text-align: center;
+  color: var(--neon-blue);
+}
+
+/* Add Button */
+.input-container > button {
+  width: 3.5rem;
+  height: 3.5rem;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
+  color: white;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.input-container > button::after {
+  content: '';
+  font-size: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Animations */
+@keyframes hologram {
+  0% { transform: rotate(45deg) translateX(-50%); }
+  100% { transform: rotate(45deg) translateX(50%); }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Hover States */
+.todo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.input-container > button:hover {  
+  transform: scale(1.1) rotate(180deg);
+  box-shadow: 0 0 35px var(--neon-pink);
+}
+
+.deletecheckbox button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.3);
+}
